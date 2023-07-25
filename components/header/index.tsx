@@ -1,18 +1,18 @@
 "use client";
 
 // Import React
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Import Next.js
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Import Styles
-import "./header.scss";
-
 // Import Components
 import Button from "@components/button";
 import Image from "next/image";
+
+// Import Styles
+import "./header.scss";
 
 // Type Definitions
 type Link = {
@@ -24,15 +24,73 @@ type MenuItem = {
   text: string;
 };
 
+type CategoryMenu = {
+  text: string;
+  categories: {
+    title: string;
+    links: Link[];
+  }[];
+};
+
 // Constants
 
-const categoriesMenu = [
+const categoriesMenu: CategoryMenu[] = [
   {
     text: "Grafik & Tasarım",
     categories: [
       {
         title: "Logo Tasarımı & Marka Kimliği",
         links: [
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+        ],
+      },
+      {
+        title: "Logo Tasarımı & Marka Kimliği",
+        links: [
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+        ],
+      },
+      {
+        title: "Logo Tasarımı & Marka Kimliği",
+        links: [
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+        ],
+      },
+      {
+        title: "Logo Tasarımı & Marka Kimliği",
+        links: [
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+        ],
+      },
+      {
+        title: "Logo Tasarımı & Marka Kimliği",
+        links: [
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
+          { text: "Logo Tasarımı", href: "/logo-tasarimi" },
+          { text: "Marka Kimliği", href: "/marka-kimligi" },
           { text: "Logo Tasarımı", href: "/logo-tasarimi" },
           { text: "Marka Kimliği", href: "/marka-kimligi" },
         ],
@@ -137,7 +195,6 @@ const categoriesMenu = [
       },
     ],
   },
-  // Yeni kategori 1
   {
     text: "Sağlık & Spor",
     categories: [
@@ -159,7 +216,6 @@ const categoriesMenu = [
       },
     ],
   },
-  // Yeni kategori 2
   {
     text: "Teknoloji",
     categories: [
@@ -184,7 +240,6 @@ const categoriesMenu = [
       },
     ],
   },
-  // Yeni kategori 3
   {
     text: "Moda",
     categories: [
@@ -221,27 +276,47 @@ export default function Header() {
     lastName: "Karagöz",
     isSeller: true,
   });
+  const [activeCategory, setActiveCategory] = useState<CategoryMenu | null>(
+    null
+  );
 
   // Functions
-  const isActive = () => {
+  const isActive = useCallback(() => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
-  };
+  }, []);
 
-  const handleOptions = (e: any) => {
+  const handleOptions = useCallback((e: any) => {
     const target = e.target as HTMLElement;
     if (target.parentElement?.className !== "user") {
       setOpen(false);
     }
-  };
+  }, []);
+
+  const handleMouseOverCategory = useCallback((e: any) => {
+    const target = e.target as HTMLElement;
+    const unwantedClasses = [
+      "categories-menu",
+      "links",
+      "category-list",
+      "categories-wrapper",
+      "categories-container",
+    ];
+  
+    if (!unwantedClasses.some(className => target.parentElement?.classList.contains(className))) {
+      setActiveCategory(null);
+    }
+  }, []);
 
   // Effects
   useEffect(() => {
     window.addEventListener("scroll", isActive);
     window.addEventListener("click", handleOptions);
+    window.addEventListener("mouseover", handleMouseOverCategory);
 
     return () => {
       window.removeEventListener("scroll", isActive);
       window.removeEventListener("click", handleOptions);
+      window.removeEventListener("mouseover", handleMouseOverCategory);
     };
   }, []);
 
@@ -344,20 +419,44 @@ export default function Header() {
 
       {(active || pathname !== "/") && (
         <>
-          <hr></hr>
-          <div className="categories-menu">
-            <div className="categories-menu-container container">
-              {categoriesMenu.map((c) => (
-                <div
-                  className="category-menu"
-                  key={c.text}
-                >
-                  {c.text}
-                </div>
-              ))}
-            </div>
+          <hr />
+          <div className="categories-menu container">
+            {categoriesMenu.map((c, index) => (
+              <div
+                className="category-menu"
+                key={index}
+                onMouseEnter={() => setActiveCategory(c)}
+              >
+                {c.text}
+              </div>
+            ))}
           </div>
         </>
+      )}
+      {(active || pathname !== "/") && activeCategory && (
+        <div className="categories-wrapper">
+          <div className="categories-container container">
+            {activeCategory?.categories?.map((c: any, index: any) => (
+              <div
+                key={index}
+                className="category-list"
+              >
+                <div className="title">{c.title}</div>
+                <div className="links">
+                  {c.links.map((l: any, index: any) => (
+                    <Link
+                      href={l.href}
+                      key={index}
+                      className="link-item"
+                    >
+                      {l.text}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </header>
   );

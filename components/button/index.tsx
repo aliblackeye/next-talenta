@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Button.scss"
+import "./button.scss"
 
 type Status = "primary" | "secondary" | "success" | "danger" | "white";
 

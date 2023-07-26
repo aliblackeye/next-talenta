@@ -12,7 +12,7 @@ import Button from "@components/button";
 import Image from "next/image";
 
 // Import Styles
-import "./header.scss";
+import "./Header.scss";
 
 // Type Definitions
 type Link = {

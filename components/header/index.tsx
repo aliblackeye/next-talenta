@@ -36,7 +36,6 @@ type CurrentUser = {
 };
 
 // Constants
-
 const categoriesMenu: CategoryMenu[] = [
   {
     text: "Grafik & Tasarım",

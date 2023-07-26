@@ -5,15 +5,16 @@ import "public/styles/globals.scss";
 import type { Metadata } from "next";
 
 // Import Fonts
-import { Poppins } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // Import Components
 import Header from "@components/header";
 import Footer from "@components/footer";
 
-const poppins = Poppins({
+const merriweather = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300","400","500","600","700"],
+  style: "normal",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={merriweather.className}>
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./Button.scss"
+
 type Status = "primary" | "secondary" | "success" | "danger" | "white";
 
 interface Props {

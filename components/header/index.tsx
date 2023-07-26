@@ -12,16 +12,12 @@ import Button from "@components/button";
 import Image from "next/image";
 
 // Import Styles
-import "./header.scss";
+import "./Header.scss";
 
 // Type Definitions
 type Link = {
   text: string;
   href: string;
-};
-
-type MenuItem = {
-  text: string;
 };
 
 type CategoryMenu = {
@@ -30,6 +26,13 @@ type CategoryMenu = {
     title: string;
     links: Link[];
   }[];
+};
+
+type CurrentUser = {
+  id: string | number;
+  firstName: string;
+  lastName: string;
+  isSeller: boolean;
 };
 
 // Constants
@@ -267,15 +270,17 @@ export default function Header() {
   // Hooks
   const pathname = usePathname();
 
-  // States
-  const [active, setActive] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState({
+  const user = {
     id: 1,
     firstName: "Ali",
     lastName: "Karagöz",
     isSeller: true,
-  });
+  };
+
+  // States
+  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState<null | CurrentUser>(user);
   const [activeCategory, setActiveCategory] = useState<CategoryMenu | null>(
     null
   );
@@ -301,8 +306,12 @@ export default function Header() {
       "categories-wrapper",
       "categories-container",
     ];
-  
-    if (!unwantedClasses.some(className => target.parentElement?.classList.contains(className))) {
+
+    if (
+      !unwantedClasses.some((className) =>
+        target.parentElement?.classList.contains(className)
+      )
+    ) {
       setActiveCategory(null);
     }
   }, []);
@@ -373,7 +382,7 @@ export default function Header() {
                 height={30}
                 alt="user"
               />
-              <span className="first-name">{currentUser?.firstName}</span>
+  
               {open && (
                 <div className={`${open ? "options active" : "options"}`}>
                   {currentUser.isSeller && (
@@ -431,6 +440,7 @@ export default function Header() {
               </div>
             ))}
           </div>
+          <hr/>
         </>
       )}
       {(active || pathname !== "/") && activeCategory && (

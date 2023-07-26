@@ -1,0 +1,109 @@
+.featured {
+  height: 500px;
+  background: rgb(17, 17, 17);
+  background: linear-gradient(
+    90deg,
+    rgba(17, 17, 17, 1) 0%,
+    rgba(29, 29, 29, 1) 100%
+  );
+
+  @media (max-width: 600px) {
+    height: 400px;
+  }
+
+  .container {
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    @media (max-width: 900px) {
+      justify-content: center;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1;
+      color: var(--white);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 16px;
+
+      @media(min-width:600px){
+        padding: 0px;
+      }
+
+      .title {
+        font-size: 48px;
+        max-width: 650px;
+        @media (max-width: 1160px) {
+          max-width: 560px;
+          font-size: 40px;
+        }
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        background-color: var(--white);
+        max-width: 650px;
+        @media (max-width: 1160px) {
+          max-width: 560px;
+        }
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        .search-input {
+          padding: 10px;
+          border: 0;
+          outline: 0;
+          width: 100%;
+
+          &::placeholder {
+            color: var(--gray);
+            font-weight: 500;
+          }
+        }
+
+        .search-btn {
+          background-color: var(--primary);
+          padding: 12px 24px;
+          border: 0;
+          border-radius: 0 4px 4px 0;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          &:hover {
+            filter: brightness(0.96);
+          }
+        }
+      }
+
+      .popular {
+        span {
+          margin-right: 10px;
+        }
+        .link {
+          border-radius: 10px;
+          padding: 4px 8px;
+          border: 1px solid var(--white);
+          font-size: 14px;
+          margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+          display: none;
+        }
+      }
+    }
+    .right {
+      position: absolute;
+      right: 5%;
+      @media (max-width: 900px) {
+        display: none;
+      }
+    }
+  }
+}

@@ -3,10 +3,19 @@
 
 	margin: 90px 0;
 	padding: 90px 0;
+
+	@media (max-width: 600px) {
+		margin-bottom: 0;
+	}
+
 	.container {
 		display: flex;
 		align-items: center;
 		gap: 40px;
+
+		@media (max-width: 900px) {
+			flex-direction: column;
+		}
 
 		.left {
 			flex: 1;
@@ -26,6 +35,11 @@
 				flex-direction: column;
 				.proposition-item {
 					max-width: 470px;
+
+					@media (max-width: 900px) {
+						max-width: 100%;
+					}
+
 					span {
 						display: flex;
 						align-items: center;

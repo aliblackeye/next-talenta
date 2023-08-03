@@ -1,0 +1,152 @@
+.gig {
+	padding-top: 50px;
+	.container {
+		padding-inline: 90px;
+		.gig-top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 30px;
+			.left {
+				display: flex;
+				align-items: center;
+				font-size: 14px;
+
+				a {
+					display: flex;
+					align-items: center;
+					.slash {
+						margin: 0 6px;
+					}
+				}
+			}
+
+			.right {
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				.saves,
+				.share {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+					border: 1px solid var(--border-color);
+					padding: 5px 10px;
+					border-radius: 6px;
+					cursor: pointer;
+				}
+
+				.saves {
+					font-size: 14px;
+
+					.saved {
+						color: var(--danger);
+					}
+				}
+			}
+		}
+
+		.gig-content {
+			display: flex;
+			justify-content: space-between;
+			gap: 50px;
+			.left {
+				flex: 7;
+			}
+			.right {
+				flex: 4;
+				border: 1px solid var(--border-color);
+
+				.packages {
+					.package-changer {
+						display: flex;
+
+						&__item {
+							flex: 1;
+							padding: 20px 10px;
+							text-align: center;
+							background-color: var(--light-gray);
+							font-weight: 600;
+							cursor: pointer;
+							border-bottom: 1px solid var(--border-color);
+
+							border-left: 1px solid var(--border-color);
+
+							&:first-child {
+								border-left: none;
+							}
+							&.active {
+								background-color: var(--white);
+								border-bottom: 2px solid var(--black);
+							}
+						}
+					}
+
+					.package-details {
+						display: flex;
+						flex-direction: column;
+						padding: 30px;
+						gap: 20px;
+						.price {
+							font-size: 24px;
+							font-weight: 600;
+							color: var(--black);
+						}
+
+						.description {
+							font-size: 14px;
+							color: var(--black);
+						}
+						.delivery-details {
+							display: flex;
+							align-items: center;
+							font-weight: 600;
+							gap: 20px;
+							.delivery-time {
+								display: flex;
+								align-items: center;
+								gap: 5px;
+							}
+
+							.revisions {
+								display: flex;
+								align-items: center;
+								gap: 5px;
+							}
+						}
+
+						.show-whats-included {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							cursor: pointer;
+							font-size: 14px;
+							font-weight: 700;
+						}
+
+						.whats-included {
+							display: flex;
+							flex-direction: column;
+							gap: 10px;
+							.included-item {
+								display: flex;
+								align-items: center;
+								gap: 5px;
+								font-size: 14px;
+								font-weight: 500;
+								color: var(--gray);
+
+								&.active {
+									svg {
+										color: #222;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,135 @@
+[
+    {
+        "success": true,
+        "message": "İlan başarıyla getirildi",
+        "data": {
+            "category": {
+                "id": 1,
+                "name": "Programlama & Teknoloji",
+                "slug": "programlama-teknoloji"
+            },
+            "subCategory": {
+                "id": 2,
+                "name": "Web Programlama",
+                "slug": "web-programlama"
+            },
+            "field": {
+                "id": 3,
+                "name": "React",
+                "slug": "react"
+            },
+            "isSaved": true,
+            "saves": 2086,
+            "details": {
+                "title": "Size özel portfolyo sitesi hazırlıyorum",
+                "description": "Selam, ben Ali. 1 yıldır web programlama ile ilgileniyorum.Şu an için React ile ilgileniyorum. Size özel portfolyo sitesi hazırlıyorum. Siz de benimle çalışmak isterseniz iletişime geçebilirsiniz."
+            },
+            "packageDetails": {
+                "includeList": [
+                    {
+                        "id": "1",
+                        "name": "Functional website"
+                    },
+                    {
+                        "id": "2",
+                        "name": "2 pages"
+                    },
+                    {
+                        "id": "3",
+                        "name": "Content upload"
+                    },
+                    {
+                        "id": "4",
+                        "name": "2 plugins/extensions"
+                    },
+                    {
+                        "id": "5",
+                        "name": "E-commerce functionality"
+                    },
+                    {
+                        "id": "6",
+                        "name": "5 products"
+                    },
+                    {
+                        "id": "7",
+                        "name": "Payment processing"
+                    },
+                    {
+                        "id": "8",
+                        "name": "Opt-in form"
+                    },
+                    {
+                        "id": "8",
+                        "name": "Opt-in form"
+                    },
+                    {
+                        "id": "8",
+                        "name": "Opt-in form"
+                    },
+                    {
+                        "id": "9",
+                        "name": "Autoresponder integration"
+                    },
+                    {
+                        "id": "10",
+                        "name": "Speed optimization"
+                    },
+                    {
+                        "id": "11",
+                        "name": "Hosting setup"
+                    }
+                ],
+                "packages": [
+                    {
+                        "type":"basic",
+                        "title": "Basic paket başlık",
+                        "description": "Get custom Wix add-ons such as form email notifications, html add-ons and much more.",
+                        "price": 1000,
+                        "delivery": 2,
+                        "revision": "unlimited",
+                        "included": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            8,
+                            10
+                        ]
+                    },
+                    {
+                        "type":"standard",
+                        "title": "Basic paket başlık",
+                        "description": "Get custom Wix add-ons such as form email notifications, html add-ons and much more.",
+                        "price": 1000,
+                        "delivery": 2,
+                        "revision": "unlimited",
+                        "included": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            8,
+                            10
+                        ]
+                    },
+                    {
+                        "type":"premium",
+                        "title": "Basic paket başlık",
+                        "description": "Get custom Wix add-ons such as form email notifications, html add-ons and much more.",
+                        "price": 1000,
+                        "delivery": 2,
+                        "revision": "unlimited",
+                        "included": [
+                            0,
+                            1,
+                            2,
+                            3,
+                            8,
+                            10
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+]
